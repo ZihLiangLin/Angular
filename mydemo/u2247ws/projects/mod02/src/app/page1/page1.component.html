@@ -1,0 +1,14 @@
+<p>My Friends:</p>
+<ul>
+    <li *ngFor="let Friend of Friends">
+        {{Friend}}
+    </li>
+</ul>
+
+<p *ngIf="Friends.length > 3">朋友很多喔</p>
+
+<p>100 + 1 = {{100 + 1}}</p>
+<p>100 + 1 = {{100 + 1 + getval()}}</p>
+
+<div>{{picture.Subject}}</div>
+<img src={{picture.Url}} />

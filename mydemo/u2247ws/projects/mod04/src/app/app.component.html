@@ -1,0 +1,36 @@
+<style>
+  ul li{
+    display:inline;
+  }
+  ul li a{
+    padding: 0 5px
+  }
+</style>
+
+
+<div style="text-align: center;">  
+  <ul>
+    <li><a href='page1'>DOM屬性綁定</a></li>
+    <li><a href='page2'>Attribute綁定</a></li>
+    <li><a href='page3'>Class綁定</a></li>
+    <li><a href='page4'>Event綁定</a></li>
+    <li><a href='page5'>ngModel</a></li>
+    <li><a href='page7'>ngFor</a></li>
+  </ul>
+  <!-- <app-page6 [searchText]="mySearch" (searchTextChange)="mySearch=$event"></app-page6> -->
+  <app-page6 [(searchText)]="mySearch" (searchTextChange)="onTextChange($event)"></app-page6>
+  <!-- <h3 *ngIf="mySearch.length > 0">
+    找到了 {{mySearch}}!!
+  </h3> -->
+  <!-- <h3 [style.border]="mySearch.length>0?'solid 3px blue':'solid 3px red'">
+    <span *ngIf="mySearch.length>0; else notFound">找到了!!</span>
+    <ng-template #notFound>沒找到ㄡ...</ng-template>
+  </h3> -->
+  <h3 [ngStyle]="resultStyles" *ngIf="!isTouch">
+    <span *ngIf="isFound; else notFound">找到了{{mySearch}}!!</span>
+    <ng-template #notFound>沒找到ㄡ...</ng-template>
+  </h3>
+</div>
+
+<hr />
+<router-outlet></router-outlet>

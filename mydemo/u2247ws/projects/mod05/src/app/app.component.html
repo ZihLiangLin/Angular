@@ -1,0 +1,6 @@
+<h1>
+  {{title}}
+</h1>
+購買數量:
+<input type="number" [(ngModel)]="Qty">
+<app-check-stock [Qty] = "Qty" [Stock]="Stock"></app-check-stock>

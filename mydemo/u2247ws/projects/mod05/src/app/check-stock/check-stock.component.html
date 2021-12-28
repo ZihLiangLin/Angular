@@ -1,0 +1,17 @@
+<style>
+    .info{
+        background-color: black;
+        color: white;
+    }
+    .lower{
+        color: red;
+    }
+</style>
+
+<span [class]="Info" [ngClass]="{lower:lower}">
+    {{Info}}
+    <!--刻意在內部修改Stock-->
+    <button (click)="GetStock()">
+        檢查庫存是否足夠
+    </button>
+</span>
