@@ -1,10 +1,20 @@
+<style>
+    .ng-valid[required], .ng-valid.required{
+        border-left: 5px solid #42A948;
+    }
+    .ng-invalid:not(form){
+        border-left: 5px solid #a94442;
+    }
+</style>
 <div class="container">
         <h1>Meeting Room Form</h1>
         <form >
             <div class="form-group">
                 <label for="name">名稱</label>
-                 <input type="text" class="form-control" id="name" name="name" [(ngModel)]="meetingRoom.name">
+                <input type="text" class="form-control" id="name" name="name" [(ngModel)]="meetingRoom.name" #spy required #name="ngModel">
+                <div [hidden]="name.valid || name.pristine" class="alert alert-danger">名稱欄位不可空白</div>
             </div>
+            <br> TODO: remove this: {{spy.className}}
              <div class="form-group">
                 <label for="size">容納人數</label>
                 <select class="form-control" id="size" name="size" [(ngModel)]="meetingRoom.size">
