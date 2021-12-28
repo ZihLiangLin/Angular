@@ -1,6 +1,13 @@
-<h1>
+<h1 #title1>
   {{title}}
 </h1>
 購買數量:
 <input type="number" [(ngModel)]="Qty">
-<app-check-stock [Qty] = "Qty" [Stock]="Stock"></app-check-stock>
+<app-check-stock [Qty] = "Qty" [Stock]="Stock">
+  <span class="lower">
+    低於庫存，目前只有{{Stock}}
+  </span>
+  <span class="enough">
+    目前庫存量足夠
+  </span>
+</app-check-stock>

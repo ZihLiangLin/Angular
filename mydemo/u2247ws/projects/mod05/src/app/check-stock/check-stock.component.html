@@ -9,9 +9,13 @@
 </style>
 
 <span [class]="Info" [ngClass]="{lower:lower}">
-    {{Info}}
+    <!-- {{Info}} -->
     <!--刻意在內部修改Stock-->
-    <button (click)="GetStock()">
+    <!-- <button (click)="GetStock()">
         檢查庫存是否足夠
-    </button>
+    </button> -->
+    <ng-content select=".lower" *ngIf="lower;else enough"></ng-content>
+    <ng-template #enough>
+        <ng-content select=".enough"></ng-content>
+    </ng-template>
 </span>
