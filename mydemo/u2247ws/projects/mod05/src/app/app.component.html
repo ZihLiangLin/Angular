@@ -1,9 +1,9 @@
-<h1 InTheBox #title1>
+<h1 InTheBox="dashed 3px blue" #title1>
   {{title}}
 </h1>
 購買數量:
 <input type="number" [(ngModel)]="Qty">
-<app-check-stock InTheBox [Qty] = "Qty" [Stock]="Stock">
+<app-check-stock InTheBox="dashed 3px blue" [Qty] = "Qty" [Stock]="Stock">
   <span #span class="lower">
     低於庫存，目前只有{{Stock}}
   </span>

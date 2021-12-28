@@ -1,12 +1,14 @@
-import { Directive, ElementRef, HostListener } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 
 @Directive({
   selector: '[InTheBox]'
 })
 export class InTheBoxDirective {
-
+  @Input('InTheBox') borderStyle: string = "";
   @HostListener("mouseenter") onMouseEnter(){
-    this.putInTheBox("solid 2px red");
+    if(!this.borderStyle)
+      this.borderStyle = "solid 2px red";
+    this.putInTheBox(this.borderStyle);
   }
 
   @HostListener("mouseleave") onMouseLeave(){
