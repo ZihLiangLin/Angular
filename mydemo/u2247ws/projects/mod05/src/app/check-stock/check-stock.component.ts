@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ContentChildren, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-check-stock',
@@ -31,5 +31,21 @@ export class CheckStockComponent implements OnInit {
     this.lower = (this.Stock < this.Qty);
     this.Info = this.lower ? `低於庫存，目前只有${this.Stock}`:'';
     console.log(`ngDoCheck - ${this.Info}`);
+  }
+
+  @ContentChildren('span') spans: any;
+
+  ngAfterContentInit(){
+    console.log("ngAfterContentInit - ");
+    this.spans.forEach((element:any) => {
+      console.log("\t", element);
+    });
+  }
+
+  ngAfterContentChecked(){
+    console.log("ngAfterContentChecked - ");
+    this.spans.forEach((element:any) => {
+      console.log("\t", element);
+    });
   }
 }
