@@ -30,6 +30,7 @@
                  <input type="checkbox" class="form-control" id="TV" name="TV" [(ngModel)]="meetingRoom.TV">
             </div>
               <button type="submit" class="btn btn-success">Submit</button>
+              <button type="button" class="btn btn-default" (click)="newMeetingRoom(); roomForm.reset()">新增會議室</button>
         </form>   
     </div>
       {{meetingRoom | json}}
