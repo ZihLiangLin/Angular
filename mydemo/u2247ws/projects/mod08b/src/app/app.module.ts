@@ -1,19 +1,20 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { MeetingRoomListComponent } from './meeting-room-list/meeting-room-list.component';
-import { MeetingRoomService } from './meeting-room.service';
+import { MeetingRoomComponent } from './meeting-room/meeting-room.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MeetingRoomListComponent
+    MeetingRoomComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  //providers: [MeetingRoomService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

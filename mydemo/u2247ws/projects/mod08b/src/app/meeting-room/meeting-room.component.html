@@ -1,0 +1,13 @@
+<div class="container" style='border:solid 1px blue '>
+    <div class="row" style='background-color:greenyellow'>
+        <div class="col-sm">會議室</div>
+        <div class="col-sm">容納人數</div>
+        <div class="col-sm">配備</div>
+    </div>
+    <div class="row" *ngFor="let r of meetingRooms; let i=index; let odd=odd"
+        [style.background-color]="odd? 'yellow': ''">
+        <div class="col">{{r.name}}</div>
+        <div class="col">{{r.size}}</div>
+        <div class="col">{{r.projector? "Projector" : ""}}{{(r.projector&&r.TV)? "、" : ""}}{{r.TV? "TV" :"" }}</div>
+    </div>
+</div>
