@@ -17,7 +17,7 @@ export class CheckExtNoDirective implements Validator{
     let extNo: number = parseInt(control.value);
     let result = null;
     if(extNo < 1000 || extNo > 1999)
-      result={"CheckExtNo":extNo};
+      result={"CheckExtNo":true};
     return result;
   }
 
