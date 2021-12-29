@@ -8,6 +8,6 @@
         [style.background-color]="odd? 'yellow': ''">
         <div class="col">{{r.name}}</div>
         <div class="col">{{r.size}}</div>
-        <div class="col">{{r.projector? "Projector、" : ""}}{{r.TV? "TV" :"" }}</div>
+        <div class="col">{{r.projector? "Projector" : ""}}{{(r.projector&&r.TV)? "、" : ""}}{{r.TV? "TV" :"" }}</div>
     </div>
 </div>
