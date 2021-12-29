@@ -26,13 +26,16 @@
     <div class="form-group">
       <label for="size">分機號碼</label>
       <input type="text" class="form-control" id="extNo" placeholder="租借者的辦公室分機號碼" required name="extNo"
-        pattern="[0-9]{4}" title="4個數字" [(ngModel)]="rentRoom.extNo" #extNo="ngModel">
+        pattern="[0-9]{4}" title="4個數字" [(ngModel)]="rentRoom.extNo" required CheckExtNo #extNo="ngModel">
         <div *ngIf="extNo.invalid && (extNo.dirty || extNo.touched)" class="alert alert-danger">
           <div *ngIf="extNo.errors?.required">
             分機號碼必須填寫!!
           </div>
           <div *ngIf="extNo.errors?.pattern">
             分機號碼必須是4個數字
+          </div>
+          <div *ngIf="extNo.errors?.CheckExtNo">
+            分機號碼必須介於1000~1999之間
           </div>
         </div>
     </div>
