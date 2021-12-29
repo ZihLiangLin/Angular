@@ -8,7 +8,7 @@
 </style>
 <div class="container">
         <h1>Meeting Room Form</h1>
-        <form >
+        <form #roomForm="ngForm" (ngSubmit)="onSubmit(roomForm)">
             <div class="form-group">
                 <label for="name">名稱</label>
                 <input type="text" class="form-control" id="name" name="name" [(ngModel)]="meetingRoom.name" #spy required #name="ngModel">
@@ -29,13 +29,35 @@
                  <label for="TV">電視</label>
                  <input type="checkbox" class="form-control" id="TV" name="TV" [(ngModel)]="meetingRoom.TV">
             </div>
-              <button type="submit" class="btn btn-success">Submit</button>
+              <button type="submit" class="btn btn-success" [disabled]="!roomForm.form.valid">Submit</button>
               <button type="button" class="btn btn-default" (click)="newMeetingRoom(); roomForm.reset()">新增會議室</button>
-        </form>   
+        </form>
     </div>
-      {{meetingRoom | json}}
+    <!--   {{meetingRoom | json}} -->
 
-    <form #roomForm="ngForm" (ngSubmit)="onSubmit(roomForm)">
+    
 
-    </form>
+    <div class="container" [hidden]="!submitted">
+          <h2>以下是你提交的資訊:</h2>
+        <div class="table">
+              <div class="row">
+                <div class="col-4">名稱: </div>
+                <div class="col-6">{{meetingRoom.name}}</div>
+            </div>
+              <div class="row">
+                <div class="col-4">容納人數: </div>
+                <div class="col-6">{{meetingRoom.size}}</div>
+            </div>
+              <div class="row">
+                <div class="col-4">投影機: </div>
+                <div class="col-6">{{meetingRoom.projector}}</div>
+            </div>
+              <div class="row">
+                <div class="col-4">電視: </div>
+                <div class="col-6">{{meetingRoom.TV}}</div>
+            </div>
+        </div>
+        <button class="btn btn-primary" (click)="submitted=false">編修</button>
+        <br>
+    </div>
     
