@@ -8,6 +8,7 @@ import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { MeetingRoomDetailComponent } from './meeting-room-detail/meeting-room-detail.component';
 import { MeetingRoomListComponent } from './meeting-room-list/meeting-room-list.component';
+import { AppRoutingModule } from 'projects/mod11/src/app/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { MeetingRoomListComponent } from './meeting-room-list/meeting-room-list.
     HttpClientModule,
     ToastrModule.forRoot(//{positionClass:'toast-right-bottom'}
     ),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
