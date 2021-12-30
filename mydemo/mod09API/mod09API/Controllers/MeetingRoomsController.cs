@@ -43,7 +43,7 @@ namespace mod09API.Controllers
 
         // POST api/<MeetingRoomsController>
         [HttpPost]
-        public async Task<ActionResult<MeetingRoom>> PostMeetingRoom(MeetingRoom meetingRoom)
+        public async Task<ActionResult<MeetingRoom>> PostMeetingRoom([FromBody] MeetingRoom meetingRoom)
         {
             _context.MeetingRooms.Add(meetingRoom);
             await _context.SaveChangesAsync();
@@ -53,7 +53,7 @@ namespace mod09API.Controllers
 
         // PUT api/<MeetingRoomsController>/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutMeetingRoom(int id, MeetingRoom meetingRoom)
+        public async Task<IActionResult> PutMeetingRoom([FromRoute] int id, [FromBody] MeetingRoom meetingRoom)
         {
             if (id != meetingRoom.ID) return BadRequest();
             _context.Entry(meetingRoom).State = EntityState.Modified;
@@ -76,7 +76,7 @@ namespace mod09API.Controllers
 
         // DELETE api/<MeetingRoomsController>/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<MeetingRoom>> DeleteMeetingRoom(int id)
+        public async Task<ActionResult<MeetingRoom>> DeleteMeetingRoom([FromRoute] int id)
         {
             var meetingRoom = await _context.MeetingRooms.FindAsync(id);
             if(meetingRoom == null)

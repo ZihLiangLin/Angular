@@ -31,6 +31,7 @@ namespace mod09API
             services.AddDbContext<MeetingRoomContext>(
                 options => options.UseSqlServer(
                     Configuration.GetConnectionString("DevConnection")));
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,6 +41,14 @@ namespace mod09API
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            var allowCors = Configuration["AppConfig:Cors"].Split(",");
+
+            app.UseCors(options =>
+                options.WithOrigins(allowCors)
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+            );
 
             app.UseHttpsRedirection();
 
